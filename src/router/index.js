@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/views/HelloWorld'
 import HelloPerson from '@/views/HelloPerson'
-import reusability from '@/views/reusability'
+import reusability from '@/views/reusability/index'
 
 Vue.use(Router)
 

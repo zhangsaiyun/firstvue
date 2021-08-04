@@ -6,9 +6,12 @@ import 'element-ui/lib/theme-chalk/index.css'
 import less from 'less'
 import App from './App'
 import router from './router'
+import Mixin from './mixins'
 
+Vue.mixin(Mixin)
 Vue.use(ElementUI)
 Vue.use(less)
+/* 阻止启动生产消息，常用作指令。 */
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
