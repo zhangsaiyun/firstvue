@@ -1,20 +1,11 @@
 <template>
   <div class="hello">
-    <el-menu
-      :default-active="activeIndex"
-      class="el-menu-demo"
-      mode="horizontal"
-      background-color="#545c64"
-      text-color="#fff"
-      active-text-color="#ffd04b"
-      router>
-      <el-menu-item
-        v-for="(item, index) in menuList"
-        :key="index"
-        :index="item.url"
-        :disabled="item.disabled ? true : false"
-      >{{ item.title }}</el-menu-item>
-    </el-menu>
+    <div>{{$t('user.login')}}</div>
+    <div>{{$t('user.register')}}</div>
+    <div>{{$t('user.loginUsername')}}</div>
+    <div>
+      <el-button type="primary" @click="changeLanguage">{{$t('language.name')}}</el-button>
+    </div>
     <img src="../assets/logo.png">
   </div>
 </template>
@@ -24,24 +15,23 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      activeIndex: '/',
-      menuList: [
-        { title: '首页', url: '/' },
-        { title: '玩耍中心', url: '/helloPerson' },
-        { title: '可复用性&组合', url: '/reusability' },
-        { title: '消息中心', url: '/', disabled: true }
-      ]
+
     }
   },
   methods: {
-    onJump (url) {
-      this.$router.push(url)
+    changeLanguage () {
+      this.$i18n.locale = (this.$i18n.locale === 'zh' ? 'en' : 'zh')
+      localStorage.setItem('languageSet', this.$i18n.locale)
     }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
+<style scoped lang="less">
+  .hello{
+    line-height: 30px;
+    font-size: 14px;
+    padding-top: 15px;
+  }
 </style>
